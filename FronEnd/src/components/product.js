@@ -4,37 +4,40 @@ import Rating from './Rating'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 
-export default function Product({singleItem,category,product}) {
+export default function Product({singleItem}) {
 
 
   return (
-    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center' ,width:'25'}} >
-      
-        <Card  style={{ flex: '0 0 20rem', margin: '1rem', maxWidth: '25rem' }} >
-            <Link to={`/product/${singleItem._id}`}>
-      <Card.Img variant="top" src={singleItem.image} style={{width:'250px',height:"200px"}} />
-      </Link>
-      <Card.Body >
-      <Link to={`/product/${singleItem._id}`}  style={{ textDecoration: 'none'}}>
-        <Card.Text style={{ fontSize: '1rem' }}>{singleItem.name}   </Card.Text>
-        </Link>
-        <Card.Text>
-            <Rating 
-             value={singleItem.rating}
-             text={singleItem.numReviews}
-             color='yellow'/>
-        </Card.Text>
-        
-          <Card.Text style={{width:'286px',height:"96px"}}>{singleItem.description}   </Card.Text>
-          
-        <Card.Text style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word',padding:"10px" }}>{singleItem.brand}   </Card.Text>
-        <Card.Text>{singleItem.category}   </Card.Text>
-        <Card.Text>{singleItem.price}   </Card.Text>
-        <Link to={`/product/${singleItem._id}`}>
-        <Button variant="info">see Details</Button>{' '}
-        </Link>
-      </Card.Body>
-    </Card>
+<Card style={{ display: "flex", flexDirection: 'column', maxWidth: '300px', height: '100%', flexShrink: 0  }}>
+  <Link to={`/product/${singleItem._id}`}>
+    <Card.Img variant="top" src={singleItem.image} style={{ width: '100%', height: 'auto', objectFit: 'cover' }} />
+  </Link>
+  <Card.Body style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+    <Link to={`/product/${singleItem._id}`} style={{ textDecoration: 'none' }}>
+      <Card.Title style={{ fontSize: '1rem', marginBottom: '5px', fontWeight: 'bold' }}>{singleItem.name}</Card.Title>
+    </Link>
+    <div style={{ display: 'flex', marginBottom: '5px' }}>
+      <span style={{ fontWeight: 'bold' }}>Brand:</span>
+      <span style={{ marginLeft: '5px' }}>{singleItem.brand}</span>
     </div>
+    <div style={{ display: 'flex', marginBottom: '5px' }}>
+      <span style={{ fontWeight: 'bold' }}>Category:</span>
+      <span style={{ marginLeft: '5px' }}>{singleItem.category}</span>
+    </div>
+    <div style={{ display: 'flex', marginBottom: '5px' }}>
+      <span style={{ fontWeight: 'bold' }}>Price:</span>
+      <span style={{ marginLeft: '5px' }}>{singleItem.price}</span>
+    </div>
+    <Card.Text style={{ marginBottom: '10px' }}>{singleItem.description}</Card.Text>
+    <div style={{ marginTop: 'auto' }}>
+      <Link to={`/product/${singleItem._id}`}>
+        <Button variant="info">See Details</Button>
+      </Link>
+    </div>
+  </Card.Body>
+</Card>
+
+  
+      
   )
 }

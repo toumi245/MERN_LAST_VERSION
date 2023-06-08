@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Carrousel() {
   return (
-    <Carousel style={{margin:"100px"}} >
+    <Carousel style={{margin:"10px"}} >
       <Carousel.Item interval={1000}>
         <Link to='/product/64595b95aceb5f5ee815e008'>
         <img

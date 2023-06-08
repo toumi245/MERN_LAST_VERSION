@@ -34,9 +34,9 @@ const HomeScreen = ({ searchName }) => {
   }, [products, searchName, selectedCategory]);
 
   return (
-    <div>
+    <div >
+    
       <Carrousel/>
-      
       <div style={{margin:"10px",padding:"10px"}}>
         <select value={selectedCategory} onChange={handleCategoryChange}>
           <option value="">All Categories</option>
@@ -45,18 +45,22 @@ const HomeScreen = ({ searchName }) => {
         </select>
       </div>
 
+      
+
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
+        <div >
         <Row>
           {filteredProducts.map((product, index) => (
-            <Col key={index} sm={12} md={6} lg={4} xl={3}>
+            <Col key={index} sm={12} md={6} lg={4} xl={3} className="mb-4">
               <Product singleItem={product} />
             </Col>
           ))}
         </Row>
+        </div>
       )}
     </div>
   );
