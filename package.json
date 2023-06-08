@@ -1,0 +1,26 @@
+{
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "dependencies": {
+    "concurrently": "^8.0.1",
+    "core-js-pure": "^3.30.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "FronEnd": "cd FronEnd && npm start --prefix FronEnd",
+    "clientinstall": "npm install --prefix FronEnd",
+    "BackEnd": "cd BackEND && npm start ",
+    "start":"node BackEnd/server.js",
+    "dev": "concurrently \"npm run FronEnd\" \"npm run BackEnd\"",
+    "data:destroy": "node BackEND/seeders -d",
+    "data:import": "node backEND/seeders",
+    "render-postbuild": "npm install --prefix FronEnd && npm run build --prefix FronEnd"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
