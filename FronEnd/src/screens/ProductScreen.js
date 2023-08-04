@@ -1,6 +1,6 @@
 import { useEffect,useState } from 'react';
 import {Form} from 'react-bootstrap'
-import {  Link, useParams,useNavigate, Navigate } from 'react-router-dom';
+import {  Link, useParams,useNavigate } from 'react-router-dom';
 
 import {useDispatch,useSelector} from 'react-redux'
 import { Row, Col, ListGroup, Card, Button, Image } from 'react-bootstrap';

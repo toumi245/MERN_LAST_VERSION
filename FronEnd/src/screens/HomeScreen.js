@@ -14,7 +14,7 @@ const HomeScreen = ({ searchName }) => {
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
-
+  const [ price, setPrice ] = useState(1000);
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };
@@ -27,25 +27,35 @@ const HomeScreen = ({ searchName }) => {
     const filteredProducts = products.filter(
       (product) =>
         product.name.toLowerCase().includes(searchName.toLowerCase().trim()) &&
-        (selectedCategory === '' || product.category === selectedCategory)
+        (selectedCategory === '' || product.category === selectedCategory)&& parseInt(product.price,10) <= price
     );
 
-    setFilteredProducts(filteredProducts);
-  }, [products, searchName, selectedCategory]);
+  setFilteredProducts(filteredProducts);
+  }, [products, searchName, selectedCategory,price]);
+
+
+  // Triggered when the value gets updated while scrolling the slider:
+  const handleInput = (e)=>{
+    setPrice( e.target.value );
+  }
 
   return (
     <div >
     
       <Carrousel/>
-      <div style={{margin:"10px",padding:"10px"}}>
+      <div style={{display:"flex",margin:"10px",padding:"10px"}}>
+        <div style={{display:"flex",flexDirection:"column",justifyContent:'center',marginRight:"20px"}}>
         <select value={selectedCategory} onChange={handleCategoryChange}>
           <option value="">All Categories</option>
           <option value="Logiciel">Logiciel</option>
           <option value="Electronics">Electronics</option>
         </select>
+        </div>
+      <div>
+      <h1 style={{color:'#1E90FF',fontSize:'30px'}}>Price: { price }</h1>
+      <input type="range" min="0" max="9000" onInput={ handleInput } />
       </div>
-
-      
+      </div>
 
       {loading ? (
         <Loader />

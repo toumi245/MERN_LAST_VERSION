@@ -5,7 +5,6 @@ import {Row,Col,ListGroup,Image,Form,Button,Card} from 'react-bootstrap'
 import Message from '../components/Message'
 import {addToCart,removeFromCart} from'../actions/cartActions'
 function CartScreen() {
-  // const {id}=useParams();
 const {search}=useLocation()
 const navigate=useNavigate()
 const dispatch =useDispatch()

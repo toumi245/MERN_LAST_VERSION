@@ -28,8 +28,8 @@ const userInfoFromStorage = localStorage.getItem('userInfo')
   : {};
 
 const initialState = {
- 
-   cart: { cartItems: cartItemsFromStorage,shippingAddress:shippingAddressFromStorage },
+
+    cart: { cartItems: cartItemsFromStorage,shippingAddress:shippingAddressFromStorage },
     userLogin:{userInfo:userInfoFromStorage}
 };
   
