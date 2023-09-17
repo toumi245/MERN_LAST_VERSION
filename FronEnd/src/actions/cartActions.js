@@ -3,7 +3,7 @@ import { CART_ADD_ITEM, CART_REMOVE_ITEM,CART_SAVE_SHIPPING_ADRESS,CART_SAVE_PAY
 
 
 export const addToCart=(id,qty)=>async(dispatch,getState)=>{
-    const {data}= await axios.get(`https://backend2-mnfa.onrender.com/api/products/${id}`)
+    const {data}= await axios.get(`https://mern-commerce-backend-ohn1.onrender.com/api/products/${id}`)
     console.log("data : " , data)
     dispatch({
     type:CART_ADD_ITEM,
