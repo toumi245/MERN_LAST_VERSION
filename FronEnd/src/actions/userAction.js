@@ -24,7 +24,7 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_FAIL,
                 'Content-Type':'application/json',
             }
         }
-        const {data}= await axios.post('https://backend2-mnfa.onrender.com/api/users/login',
+        const {data}= await axios.post('https://mern-commerce-backend-ohn1.onrender.com/api/users/login',
         
         {email,password}
         ,config)
@@ -57,7 +57,7 @@ export const register = (name,email,password)=> async(dispatch) => {
                 'Content-Type':'application/json',
             }
         }
-        const {data}= await axios.post('https://backend2-mnfa.onrender.com/api/users',
+        const {data}= await axios.post('https://mern-commerce-backend-ohn1.onrender.com/api/users',
         
         {name,email,password}
         ,config)
@@ -100,7 +100,7 @@ export const getUserDetails = (profile)=> async(dispatch,getState) => {
                 Authorization:`Bearer ${userInfo.token}`
             }
         }
-        const {data}= await axios.put(`https://backend2-mnfa.onrender.com/api/users/${profile}`,userInfo,config)
+        const {data}= await axios.put(`https://mern-commerce-backend-ohn1.onrender.com/api/users/${profile}`,userInfo,config)
 
         dispatch({
             type:USER_DETAILS_SUCCESS,
@@ -132,7 +132,7 @@ export const updateUserProfile = (user)=> async(dispatch,getState) => {
                 Authorization:`Bearer ${userInfo.token}`
             }
         }
-        const {data}= await axios.put(`https://backend2-mnfa.onrender.com/api/users/profile`,user,config)
+        const {data}= await axios.put(`https://mern-commerce-backend-ohn1.onrender.com/api/users/profile`,user,config)
 
         dispatch({
             type:USER_UPDATE_PROFILE_SUCCESS,
