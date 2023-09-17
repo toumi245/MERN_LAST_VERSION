@@ -11,7 +11,7 @@ export const listProducts = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_LIST_REQUEST });
-      const { data } = await axios.get('https://backend2-mnfa.onrender.com/api/products');
+      const { data } = await axios.get('https://mern-commerce-backend-ohn1.onrender.com/api/products');
       dispatch({
         type: PRODUCT_LIST_SUCCESS,
         payload: data,
@@ -34,7 +34,7 @@ export const listProductDetails = (id) => {
     return async (dispatch) => {
       try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST });
-        const { data } = await axios.get(`https://backend2-mnfa.onrender.com/api/products/${id}`);
+        const { data } = await axios.get(`https://mern-commerce-backend-ohn1.onrender.com/api/products/${id}`);
         dispatch({
           type: PRODUCT_DETAILS_SUCCESS,
           payload: data,
